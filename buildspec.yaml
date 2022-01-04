@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+  build:
+    commands:
+      - echo Build started on `date`
+      - source venv/bin/activate
+      - pip3 install -r requirements.txt
+      - python3 build_notebooks.py
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - build/**/*
+  discard-paths: yes
